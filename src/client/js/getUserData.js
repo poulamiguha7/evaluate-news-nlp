@@ -1,31 +1,22 @@
 async function getUserData(input_text) 
 {
-  alert(input_text);
-
- // Async POST 
-const postdata = async ( url = '/sentiment', data = {"text": "Very well!"})=>{
-
-    console.log("Now calling the postdata request");
-    
-    const response = await fetch(url, {
-    method: 'POST', 
-    credentials: 'same-origin',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-   // Body data type must match "Content-Type" header        
-    body: JSON.stringify(data), 
-  });
+    const response = await fetch('/test');
     try {
-      const newData = await response.json();
-      console.log(newData);
-      return newData;
-    }catch(error) {
-    console.log("error", error);
-    }
-};
-
-
+     console.log("Get dummy API call");
+     let allData = await response.json();
+      allData = {
+        "polarity": "positive",
+        "subjectivity": "objective",
+        "text": "\"good News\"",
+        "polarity_confidence": 0.5331486463546753,
+        "subjectivity_confidence": 0.8866126393723417
+      };
+     console.log("Sentiment recieved from test message: "+ allData.polarity);  
+     return allData;
+    } 
+    catch (error) {
+      console.log(error);
 }
 
+}
 export { getUserData }
