@@ -6,47 +6,60 @@
     </head>
     <body>
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <div class="navigation">
+                <ul>
+                    <li><a href="https://aylien.com/text-api/">Aylien</a></li>
+                    <li><a href="https://github.com/poulamiguha7/evaluate-news-nlp">Github</a></li>
+                  </ul>
             </div>
         </header>
-
         <main>
             <section>
+                <h3>Enter a text below to identify sentiment using Aylien API </h3>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Enter the Message Here">
+                    <input id="name" type="text" name="input" value="" placeholder="Enter the Text Here">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
             <section>
-                <strong>Form Results:</strong>
-                <div id="results">
-                    <h2>Entered Text:</h3>
-                    <p id="mytext"></p>
-                    <ul>
-                        <li>
-                          <h3>Text Polarity:</h3>
-                          <p id="text_polarity"></p>
-                          <h4>Confidence:</h4>
-                          <p id="text_polarity_confidence"></p>
-                        </li>
-                        <li>
-                          <h3>Text Subjectivity:</h3>
-                          <p id="text_subjectivity"></p>
-                          <h4>Confidence:</h4>
-                          <p id="text_subjectivity_confidence"></p>
-                        </li>
-                      </ul>
-                </div>
-                
+                <h1>Sentiment Analysis Results</h1>
+                <h2>User entered the following text:</h2>
+                <h3 id="mytext"></h2>
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Polarity</td>
+    <td id="text_polarity"></td>
+  </tr>
+  <tr>
+    <td>Polarity Confidence</td>
+    <td id="text_polarity_confidence"></td>
+  </tr>
+  <tr>
+    <td>Subjectivity</td>
+    <td id="text_subjectivity"></td>
+  </tr>
+  <tr>
+    <td>Subjectivity Confidence</td>
+    <td id="text_subjectivity_confidence"></td>
+  </tr>
+</table> 
             </section>
         </main>
         <footer>
             <p>This is a footer</p>
         </footer>
-
+<script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+</script>
     </body>
 </html>
