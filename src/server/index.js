@@ -3,7 +3,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 console.log(__dirname);
-console.log('Your API key is '+ process.env.API_KEY);
+
+//const API_ID = ${API_ID};
+//const  API_KEY = ${API_KEY};
+
+//console.log('Your API key is '+ API_ID);
+//console.log('Your API key is '+ API_KEY);
 
 var path = require('path');
 const express = require('express');
@@ -108,6 +113,8 @@ function postSentiment(req, res){
     projectData["polarity"] = newsentiment.polarity;
     projectData["subjectivity"] = newsentiment.subjectivity;
     projectData["polarity_confidence"] = newsentiment.polarity_confidence;
+    projectData["subjectivity_confidence"] = newsentiment.subjectivity_confidence;
+    projectData["text"] = newsentiment.text;
     console.log("Under /add POST request this is projectData:");
     console.log(projectData);
 };

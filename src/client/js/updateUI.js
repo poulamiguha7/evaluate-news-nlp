@@ -5,9 +5,11 @@ async function updateUI()
     console.log("Update UI called");
     const postSentimentData = await request.json();
     console.log("postSentimentData "+ postSentimentData);
-    document.getElementById('results').innerText = postSentimentData.polarity; 
-    //document.getElementById('date').innerHTML = allData.date; 
-    //document.getElementById('content').innerHTML = allData.userResponse;   
+    document.getElementById('text_polarity').innerText = postSentimentData.polarity; 
+    document.getElementById('text_subjectivity').innerText = postSentimentData.subjectivity;
+    document.getElementById('text_polarity_confidence').innerText = postSentimentData.polarity_confidence;
+    document.getElementById('text_subjectivity_confidence').innerText = postSentimentData.subjectivity_confidence;
+    document.getElementById('mytext').innerText = postSentimentData.text;
       } catch(error){
           console.log("error", error);
       };

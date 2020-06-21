@@ -1,25 +1,21 @@
 function handleSubmit(event) {
   event.preventDefault();
 
-  let message = document.getElementById('name').value;
-  console.log("::: Form Submitted ::: Message: " + message);
-  
- /* fetch("/api", {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ text: message })
-  }).then(res => res.json())*/
+  const message = document.getElementById('name').value;
 
+  if (!message) return;
   Client.getUserData(message)
   .then(function(getuserdata)
                 {
                   console.log('getuserdata output: '+ getuserdata);
-                   postdata('/add', {polarity: getuserdata.polarity, subjectivity:getuserdata.subjectivity, polarity_confidence: getuserdata.polarity_confidence});
+                   postdata('/add', { polarity: getuserdata.polarity, 
+                                      subjectivity: getuserdata.subjectivity, 
+                                      polarity_confidence: getuserdata.polarity_confidence,
+                                      subjectivity_confidence: getuserdata.subjectivity_confidence, 
+                                      text: getuserdata.text
+                                    } 
+                            );
                 }).then(Client.updateUI());
-
 
  // Async POST 
  const postdata = async (url = '/add', data = {} )=>{
