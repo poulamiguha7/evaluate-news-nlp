@@ -4,7 +4,11 @@ This project will help to understand the sentiment of a text entered in the UI. 
 
 This Project is created as per Udacity News Evaluation Project in the Udacity FEND Course.
 
-The goal of this project is to:
+## Project Functionality Goal
+
+# Analyze the Sentiment of Tweets and Reviews.
+
+## Learning Goal
 - Setting up Webpack
 - Sass styles
 - Webpack Loaders and Plugins
